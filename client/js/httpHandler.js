@@ -5,6 +5,15 @@
   //
   // TODO: build the swim command fetcher here
   //
+  const ajaxFileRequest = () => {
+    $.ajax({
+      type: 'Get',
+      url: serverUrl,
+      success: () => {
+
+      }
+    });
+  }
 
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
