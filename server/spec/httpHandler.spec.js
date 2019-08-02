@@ -27,8 +27,7 @@ describe('server responses', () => {
     httpHandler.router(req, res);
     expect(res._responseCode).to.equal(200);
     expect(res._ended).to.equal(true);
-    expect(res._data.toString()).to.be.empty;
-    done();
+    expect(['up', 'down', 'left', 'right']).to.include(res._data.toString());    done();
   });
 
   xit('should respond with 404 to a GET request for a missing background image', (done) => {
