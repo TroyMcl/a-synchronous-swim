@@ -7,14 +7,15 @@
   //
   const ajaxFileRequest = () => {
     $.ajax({
-      type: 'Get',
+      type: 'GET',
       url: serverUrl,
-      success: () => {
-
+      success: (data) => {
+        SwimTeam.move(data)
       }
     });
-  }
-
+  };
+  console.log('check for GET')
+  ajaxFileRequest();
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
   // Note: remember to fix the URL below.

@@ -20,6 +20,7 @@ module.exports.router = (req, res, next = ()=>{}) => {
   console.log('Serving request type ' + req.method + ' for url ' + req.url);
   res.writeHead(200, headers);
   if (req.method === 'GET') {
+    console.log('Test')
     res._data = directions[index]
   }
   res.end();
