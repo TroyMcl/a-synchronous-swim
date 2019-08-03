@@ -8,3 +8,6 @@ $('body').on('keydown', (event) => {
 });
 
 console.log('Client is running in the browser!');
+
+//remove swimteam.move invokation
+//instead key press needs to do a POST to serverz
