@@ -10,11 +10,14 @@
       type: 'GET',
       url: serverUrl,
       success: (data) => {
+        console.log(data)
         SwimTeam.move(data)
+      },
+      error: (error) => {
+        console.log(error)
       }
     });
   };
-  console.log('check for GET')
   ajaxFileRequest();
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
