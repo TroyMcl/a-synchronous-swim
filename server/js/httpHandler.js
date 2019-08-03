@@ -5,7 +5,7 @@ const multipart = require('./multipartUtils');
 
 var randomDirection = () => {
 var directions = ['left', 'right', 'down', 'up']
-var index = Math.floor(Math.random() * 4) + 1
+var index = Math.floor(Math.random() * 4)
 return directions[index]
 }
 
@@ -24,6 +24,14 @@ module.exports.router = (req, res, next = ()=>{}) => {
   if (req.method === 'GET') {
     console.log('server get check')
     res.write(randomDirection())
+  } else if (req.method === 'POST') {
+    console.log(req);
+req.on('data', (chunk) => {
+  console.log('This is CHUNK', chunk)
+})
+    // module.exports.initialize(req);
+    // console.log(messageQueue);
+    // res.write(messageQueue);
   }
   res.end();
   next(); // invoke next() at the end of a request to help with testing!
