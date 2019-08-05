@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const headers = require('./cors');
 const multipart = require('./multipartUtils');
+const messageQueue = require('./messageQueue.js');
 
 var randomDirection = () => {
 var directions = ['left', 'right', 'down', 'up']
@@ -13,17 +14,17 @@ return directions[index]
 module.exports.backgroundImageFile = path.join('.', 'background.jpg');
 ////////////////////////////////////////////////////////
 
-let messageQueue = null;
-module.exports.initialize = (queue) => {
-  messageQueue = queue;
-};
+// let messageQueue = null;
+// module.exports.initialize = (queue) => {
+//   messageQueue = queue;
+// };
 
 module.exports.router = (req, res, next = ()=>{}) => {
   console.log('Serving request type ' + req.method + ' for url ' + req.url);
   res.writeHead(200, headers);
   if (req.method === 'GET') {
     console.log('server get check')
-    res.write(randomDirection())
+    res.write(messageQueue.dequeue())
   } else if (req.method === 'POST') {
     console.log(req);
 req.on('data', (chunk) => {

@@ -18,7 +18,7 @@
       }
     });
   };
-  ajaxFileRequest();
+  setInterval(ajaxFileRequest(), 2000);
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
   // Note: remember to fix the URL below.
